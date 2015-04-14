@@ -1,5 +1,4 @@
-template: Hello, %s!
-defaultName: Stranger
+repositoryBasePath: c:\kinneret-repo
 
 server:
   applicationConnectors:

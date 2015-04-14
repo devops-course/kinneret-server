@@ -9,28 +9,15 @@ import org.hibernate.validator.constraints.NotEmpty;
  */
 public class KinneretServerConfiguration extends Configuration {
     @NotEmpty
-    private String template;
-
-    @NotEmpty
-    private String defaultName = "Stranger";
+    private String repositoryBasePath;
 
     @JsonProperty
-    public String getTemplate() {
-        return template;
+    public String getRepositoryBasePath() {
+        return repositoryBasePath;
     }
 
     @JsonProperty
-    public void setTemplate(String template) {
-        this.template = template;
-    }
-
-    @JsonProperty
-    public String getDefaultName() {
-        return defaultName;
-    }
-
-    @JsonProperty
-    public void setDefaultName(String name) {
-        this.defaultName = name;
+    public void setRepositoryBasePath(String repositoryBasePath) {
+        this.repositoryBasePath = repositoryBasePath;
     }
 }
