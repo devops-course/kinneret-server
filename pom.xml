@@ -2,121 +2,121 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+	<modelVersion>4.0.0</modelVersion>
 
-    <properties>
-        <dropwizard.version>0.7.1</dropwizard.version>
+	<properties>
+		<dropwizard.version>0.7.1</dropwizard.version>
 		<jacoco.version>0.7.4.201502262128</jacoco.version>
 		<surefire.version>2.12.4</surefire.version>
-    </properties>
+	</properties>
 
-    <groupId>edu.kinneret.devops.server</groupId>
-    <artifactId>kinneret-server</artifactId>
-    <version>1.0-SNAPSHOT</version>
+	<groupId>edu.kinneret.devops.server</groupId>
+	<artifactId>kinneret-server</artifactId>
+	<version>1.0-SNAPSHOT</version>
 
-    <dependencies>
-        <dependency>
-            <groupId>io.dropwizard</groupId>
-            <artifactId>dropwizard-core</artifactId>
-            <version>${dropwizard.version}</version>
-        </dependency>
+	<dependencies>
+		<dependency>
+			<groupId>io.dropwizard</groupId>
+			<artifactId>dropwizard-core</artifactId>
+			<version>${dropwizard.version}</version>
+		</dependency>
 
-        <dependency>
-            <groupId>io.dropwizard</groupId>
-            <artifactId>dropwizard-testing</artifactId>
-            <version>${dropwizard.version}</version>
-            <scope>test</scope>
-        </dependency>
+		<dependency>
+			<groupId>io.dropwizard</groupId>
+			<artifactId>dropwizard-testing</artifactId>
+			<version>${dropwizard.version}</version>
+			<scope>test</scope>
+		</dependency>
 
-        <dependency>
-            <groupId>org.assertj</groupId>
-            <artifactId>assertj-core</artifactId>
-            <version>1.7.0</version>
-            <scope>test</scope>
-        </dependency>
+		<dependency>
+			<groupId>org.assertj</groupId>
+			<artifactId>assertj-core</artifactId>
+			<version>1.7.0</version>
+			<scope>test</scope>
+		</dependency>
 
-    </dependencies>
+	</dependencies>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-                <version>1.6</version>
-                <configuration>
-                    <createDependencyReducedPom>true</createDependencyReducedPom>
-                    <filters>
-                        <filter>
-                            <artifact>*:*</artifact>
-                            <excludes>
-                                <exclude>META-INF/*.SF</exclude>
-                                <exclude>META-INF/*.DSA</exclude>
-                                <exclude>META-INF/*.RSA</exclude>
-                            </excludes>
-                        </filter>
-                    </filters>
-                </configuration>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>shade</goal>
-                        </goals>
-                        <configuration>
-                            <transformers>
-                                <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
-                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>edu.kinneret.devops.server.core.KinneretServerApplication</mainClass>
-                                </transformer>
-                            </transformers>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>1.6</version>
+				<configuration>
+					<createDependencyReducedPom>true</createDependencyReducedPom>
+					<filters>
+						<filter>
+							<artifact>*:*</artifact>
+							<excludes>
+								<exclude>META-INF/*.SF</exclude>
+								<exclude>META-INF/*.DSA</exclude>
+								<exclude>META-INF/*.RSA</exclude>
+							</excludes>
+						</filter>
+					</filters>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+						<configuration>
+							<transformers>
+								<transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+								<transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+									<mainClass>edu.kinneret.devops.server.core.KinneretServerApplication</mainClass>
+								</transformer>
+							</transformers>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>2.4</version>
-                <configuration>
-                    <archive>
-                        <manifest>
-                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-                        </manifest>
-                    </archive>
-                </configuration>
-            </plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<archive>
+						<manifest>
+							<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>${jacoco.version}</version>
+				<goals>
+					<goal>prepare-agent</goal>
+				</goals>
+				<configuration>
+					<destFile>target/jacoco.exec</destFile>
+					<!-- Sets the name of the property containing the settings for JaCoCo 
+							runtime agent. -->
+					<propertyName>surefireArgLine</propertyName>
+					<append>true</append>
+				</configuration>
+			</plugin>
+		</plugins>
+
+		<pluginManagement>
 			<plugins>
 				<plugin>
-					<groupId>org.jacoco</groupId>
-					<artifactId>jacoco-maven-plugin</artifactId>
-					<version>${jacoco.version}</version>
-					<goals>
-						<goal>prepare-agent</goal>
-					</goals>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>${surefire.version}</version>
 					<configuration>
-						<destFile>target/jacoco.exec</destFile>
-						<!-- Sets the name of the property containing the settings for JaCoCo 
-							runtime agent. -->
-						<propertyName>surefireArgLine</propertyName>
-						<append>true</append>
+						<argLine>${surefireArgLine}</argLine>
+						<skipTests>false</skipTests>
+						<testFailureIgnore>true</testFailureIgnore>
 					</configuration>
 				</plugin>
-				</plugins>
-				<pluginManagement>
-					<plugins>
-						<plugin>
-							<artifactId>maven-surefire-plugin</artifactId>
-							<version>${surefire.version}</version>
-							<configuration>
-								<argLine>${surefireArgLine}</argLine>
-								<skipTests>false</skipTests>
-								<testFailureIgnore>true</testFailureIgnore>
-							</configuration>
-						</plugin>
-					</plugins>
-				</pluginManagement>
-        </plugins>
-    </build>
+			</plugins>
+		</pluginManagement>
+	</build>
 
 </project>
