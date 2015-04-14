@@ -6,6 +6,8 @@
 
     <properties>
         <dropwizard.version>0.7.1</dropwizard.version>
+		<jacoco.version>0.7.4.201502262128</jacoco.version>
+		<surefire.version>2.12.4</surefire.version>
     </properties>
 
     <groupId>edu.kinneret.devops.server</groupId>
@@ -84,7 +86,36 @@
                     </archive>
                 </configuration>
             </plugin>
-
+			<plugins>
+				<plugin>
+					<groupId>org.jacoco</groupId>
+					<artifactId>jacoco-maven-plugin</artifactId>
+					<version>${jacoco.version}</version>
+					<goals>
+						<goal>prepare-agent</goal>
+					</goals>
+					<configuration>
+						<destFile>target/jacoco.exec</destFile>
+						<!-- Sets the name of the property containing the settings for JaCoCo 
+							runtime agent. -->
+						<propertyName>surefireArgLine</propertyName>
+						<append>true</append>
+					</configuration>
+				</plugin>
+				</plugins>
+				<pluginManagement>
+					<plugins>
+						<plugin>
+							<artifactId>maven-surefire-plugin</artifactId>
+							<version>${surefire.version}</version>
+							<configuration>
+								<argLine>${surefireArgLine}</argLine>
+								<skipTests>false</skipTests>
+								<testFailureIgnore>true</testFailureIgnore>
+							</configuration>
+						</plugin>
+					</plugins>
+				</pluginManagement>
         </plugins>
     </build>
 
