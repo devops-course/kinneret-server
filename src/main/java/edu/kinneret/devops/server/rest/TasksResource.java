@@ -7,6 +7,7 @@ import edu.kinneret.devops.server.dao.TaskDao;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.io.File;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -27,9 +28,9 @@ public class TasksResource {
 
     @POST
     @Timed
-    public Task createTask(Task taskToCreate)
+    public Response createTask(Task taskToCreate)
     {
-        return dao.createTask(taskToCreate);
+        return Response.status(Response.Status.CREATED).entity(dao.createTask(taskToCreate)).build();
     }
 
     @GET
@@ -42,7 +43,8 @@ public class TasksResource {
     @Timed
     public Task getSingleTask(@PathParam("id") String id)
     {
-        return dao.getSingleTask(id);
+        Task t = dao.getSingleTask(id);
+        return t;
     }
 
     @DELETE @Path("/{id}")

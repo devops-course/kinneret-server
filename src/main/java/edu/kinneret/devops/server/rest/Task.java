@@ -33,4 +33,15 @@ public class Task {
     public String getDescription() {
         return description;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof Task))
+                return false;
+        else
+        {
+            Task task = (Task) obj;
+            return (Long.compare(task.getId(), getId()) == 0);
+        }
+    }
 }

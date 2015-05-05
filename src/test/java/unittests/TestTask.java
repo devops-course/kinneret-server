@@ -1,4 +1,4 @@
-package rest;
+package unittests;
 
 import static io.dropwizard.testing.FixtureHelpers.*;
 import static org.assertj.core.api.Assertions.assertThat;

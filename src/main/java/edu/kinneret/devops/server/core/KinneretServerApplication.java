@@ -1,5 +1,6 @@
 package edu.kinneret.devops.server.core;
 
+import edu.kinneret.devops.server.dao.TaskDao;
 import edu.kinneret.devops.server.healthcheck.RepoHealthCheck;
 import edu.kinneret.devops.server.rest.TasksResource;
 import io.dropwizard.Application;
@@ -34,14 +35,16 @@ public class KinneretServerApplication extends Application<KinneretServerConfigu
 
         initRepo(configuration.getRepositoryBasePath());
 
-        final TasksResource resource = new TasksResource(
-                configuration.getRepositoryBasePath());
+        final TaskDao taskDao = new TaskDao(configuration.getRepositoryBasePath());
+        final TasksResource resource = new TasksResource(taskDao);
+
+        environment.jersey().register(resource);
 
         final RepoHealthCheck healthCheck =
                 new RepoHealthCheck(configuration.getRepositoryBasePath());
 
         environment.healthChecks().register("repositoryAccess", healthCheck);
-        environment.jersey().register(resource);
+
     }
 
     private void initRepo(final String repoBasePath)
