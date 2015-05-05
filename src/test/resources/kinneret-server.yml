@@ -3,7 +3,7 @@ repositoryBasePath: c:\kinneret-repo-for-testing
 server:
   applicationConnectors:
   - type: http 
-    port: 9000
+    port: 9050
   adminConnectors:
   - type: http
-    port: 9001
+    port: 9051

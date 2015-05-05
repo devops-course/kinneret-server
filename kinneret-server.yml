@@ -7,3 +7,25 @@ server:
   adminConnectors:
   - type: http
     port: 9001
+
+  requestLog:
+    timeZone: UTC
+    appenders:
+     - type: file
+       currentLogFilename: C:\kinneret-repo\logs\jetty.log
+       threshold: ALL
+       archive: true
+       archivedLogFilenamePattern: C:\kinneret-repo\logs\jetty-%d.log
+       archivedFileCount: 5
+       timeZone: UTC
+
+#logging:
+#    level: INFO
+#    appenders:
+#    - type: file
+#      currentLogFilename: C:\kinneret-repo\logs\jetty.log
+#      threshold: ALL
+#      archive: true
+#      archivedLogFilenamePattern: C:\kinneret-repo\logs\jetty-%d.log
+#      archivedFileCount: 5
+#      timeZone: UTC
