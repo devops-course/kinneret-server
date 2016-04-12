@@ -12,7 +12,16 @@ Unit and System tests are written with Junit and use Dropwizard handy classes.
 
 # Server's API
 
-POST on ```http://localhost:9000/tasks``` with json body looks like this:
+Supported REST endpoints:
+
+```
+ DELETE  /tasks/{id} 
+ GET     /tasks
+ GET     /tasks/{id}
+ POST    /tasks
+```
+    
+To create new task POST on ```http://localhost:9000/tasks``` with json body looks like this:
 ```javascript
 {"description":"blibli"}
 ```
@@ -20,7 +29,11 @@ will create new task, The response will contain the same task with the id genera
 (be aware to add the Content-Type: application/json to the http request)
 
 
-GET on ```http://localhost:9000/tasks```, returns list of tasks formated in json, for example:
+To get all tasks GET on ```http://localhost:9000/tasks```, returns list of tasks formated in json, for example:
 ```javascript
 [{"id":10,"description":"blibli"},{"id":2,"description":"blabla2"},{"id":4,"description":"blabla2"},{"id":5,"description":"blabladrggdfdfgdf"},{"id":6,"description":"kuku"},{"id":7,"description":"blabladfdfd"},{"id":8,"description":"kuku"},{"id":9,"description":"blabla2"}]
 ```
+
+To delete a task DELETE on ```http://localhost:9000/tasks/{id}``` {id} should be the task id you would like to delete
+
+You can also get single task using GET on ```http://localhost:9000/tasks/{id}```
