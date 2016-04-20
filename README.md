@@ -1,3 +1,5 @@
+[![Circle CI](https://circleci.com/gh/devops-course/kinneret-server.svg?style=svg)](https://circleci.com/gh/devops-course/kinneret-server)
+
 # Preface
 
 Server demo implementation for the devops course.
