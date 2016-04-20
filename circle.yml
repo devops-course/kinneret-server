@@ -1,0 +1,8 @@
+## Customize test commands
+test:
+  post:
+    - bash <(curl -s https://codecov.io/bash)
+
+general:
+  artifacts:
+    - target/kinneret-server-1.0-SNAPSHOT.jar
