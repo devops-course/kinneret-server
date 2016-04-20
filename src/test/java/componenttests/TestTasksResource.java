@@ -18,7 +18,6 @@ import static org.mockito.Mockito.*;
 public class TestTasksResource {
 
         private static final TaskDao dao = mock(TaskDao.class);
-        List mockWithLogger = mock(List.class, withSettings().verboseLogging());
 
         @ClassRule
         public static final ResourceTestRule resources = ResourceTestRule.builder()

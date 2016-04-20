@@ -1,6 +1,5 @@
 package integrationtests;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import edu.kinneret.devops.server.core.KinneretServerApplication;
 import edu.kinneret.devops.server.core.KinneretServerConfiguration;
@@ -43,7 +42,7 @@ public class TestTasksClient{
                 .post(Entity.entity(taskAsString, MediaType.APPLICATION_JSON_TYPE));
         assertThat(postResponse.getStatus()).isEqualTo(201);
 
-        String out = postResponse.readEntity(String.class).toString();
+        String out = postResponse.readEntity(String.class);
         Task taskAfterPost = om.readValue(out, Task.class);
         assertThat(taskToCreate.getDescription()).isEqualTo(taskAfterPost.getDescription());
         Long createdTaskId = taskAfterPost.getId();
