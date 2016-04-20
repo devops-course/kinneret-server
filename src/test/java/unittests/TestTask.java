@@ -17,6 +17,7 @@ public class TestTask {
     private static final ObjectMapper MAPPER = Jackson.newObjectMapper();
 
     @Test
+    //Unit test to check the json serialization/deserialization
     public void serializesToJSON() throws Exception {
         final Task task = new Task(1, "description to test");
 
