@@ -1,4 +1,6 @@
 [![Circle CI](https://circleci.com/gh/devops-course/kinneret-server.svg?style=svg)](https://circleci.com/gh/devops-course/kinneret-server)
+[![codecov.io](https://codecov.io/github/devops-course/kinneret-server/coverage.svg?branch=master)](https://codecov.io/github/devops-course/kinneret-server?branch=master)
+[![Codacy Badge](https://api.codacy.com/project/badge/grade/6732b290213e42e989233ce893498a30)](https://www.codacy.com/app/shayts7/kinneret-server)
 
 # Preface
 
