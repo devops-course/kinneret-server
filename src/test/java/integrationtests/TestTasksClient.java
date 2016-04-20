@@ -24,9 +24,6 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Created by tsadok on 05/05/2015.
  */
 public class TestTasksClient{
-    {
-
-    }
 
     @ClassRule
     public static final DropwizardAppRule<KinneretServerConfiguration> RULE =
@@ -56,7 +53,7 @@ public class TestTasksClient{
                 .request().accept(MediaType.APPLICATION_JSON_TYPE).get();
         assertThat(getResponse.getStatus()).isEqualTo(200);
 
-        Object o = getResponse.readEntity(String.class);
+        getResponse.readEntity(String.class);
         Task taskAfterGet = om.readValue(out, Task.class);
         assertThat(taskAfterPost.getDescription()).isEqualTo(taskAfterGet.getDescription());
         assertThat(taskAfterPost.getId()).isEqualTo(taskAfterGet.getId());
