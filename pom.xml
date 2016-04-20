@@ -74,6 +74,8 @@
 				</executions>
 			</plugin>
 
+            <!-- by default jacoco plugin set the argLine property that surefire plugin uses
+                 argLine declare the way the jvm should connects to jacoco agent -->
 			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
@@ -93,28 +95,6 @@
 					</execution>
 				</executions>
 			</plugin>
-
-			<!--plugin>
-				<groupId>org.jacoco</groupId>
-				<artifactId>jacoco-maven-plugin</artifactId>
-				<version>${jacoco.version}</version>
-				<executions>
-					<execution>
-						<id>prepare-jacoco-agent</id>
-						<goals>
-							<goal>prepare-agent</goal>
-						</goals>
-						<configuration>
-							<destFile>target/jacoco.exec</destFile-->
-							<!-- Sets the name of the property containing the settings for JaCoCo 
-							runtime agent. -->
-							<!--propertyName>surefireArgLine</propertyName>
-							<append>true</append>
-						</configuration>
-					</execution>
-				</executions>
-
-			</plugin-->
 		</plugins>
 
 		<pluginManagement>
