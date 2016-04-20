@@ -1,4 +1,5 @@
 [![Circle CI](https://circleci.com/gh/devops-course/kinneret-server.svg?style=svg)](https://circleci.com/gh/devops-course/kinneret-server)
+[![codecov.io](https://codecov.io/github/devops-course/kinneret-server/coverage.svg?branch=master)](https://codecov.io/github/devops-course/kinneret-server?branch=master)
 
 # Preface
 
