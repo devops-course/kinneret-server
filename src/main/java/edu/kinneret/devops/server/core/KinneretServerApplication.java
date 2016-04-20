@@ -8,8 +8,6 @@ import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 
 import java.io.File;
-import java.io.IOError;
-import java.io.IOException;
 
 /**
  * Created by tsadok on 16/02/2015.
@@ -62,7 +60,7 @@ public class KinneretServerApplication extends Application<KinneretServerConfigu
                 throw new RuntimeException("Failed to create repo directory!", ex);
             }
 
-            if (result == true)
+            if (result)
             {
                 System.out.println("repo directory: " + repoBasePath + ", was successfully created.");
             }

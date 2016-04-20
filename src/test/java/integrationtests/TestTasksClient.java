@@ -2,7 +2,6 @@ package integrationtests;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.common.io.Resources;
 import edu.kinneret.devops.server.core.KinneretServerApplication;
 import edu.kinneret.devops.server.core.KinneretServerConfiguration;
 import edu.kinneret.devops.server.rest.Task;
@@ -17,7 +16,6 @@ import javax.ws.rs.client.Entity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import java.io.File;
 import java.io.IOException;
 
 import static org.assertj.core.api.Assertions.assertThat;

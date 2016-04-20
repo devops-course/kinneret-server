@@ -1,13 +1,8 @@
 package edu.kinneret.devops.server.dao;
 
-import com.codahale.metrics.annotation.Timed;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import edu.kinneret.devops.server.rest.Task;
 
-import javax.ws.rs.DELETE;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
