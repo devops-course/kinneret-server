@@ -1,9 +1,0 @@
-language: java
-
-deploy:
-  provider: releases
-  api_key: "52c176130f94edee3c258c3b1bf79a0dc6d95808"
-  file: "kinneret-server-1.0-SNAPSHOT.jar"
-  skip_cleanup: true
-  on:
-    tags: true
