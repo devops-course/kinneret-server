@@ -33,7 +33,7 @@ public class TestTasksClient{
             new DropwizardAppRule<KinneretServerConfiguration>(KinneretServerApplication.class, ResourceHelpers.resourceFilePath("kinneret-server.yml"));
 
     @Test
-    public void createOneTaskAndGetIt() throws JsonProcessingException,IOException {
+    public void createOneTaskAndGetIt() throws IOException {
         Client client = new JerseyClientBuilder().build();
         String tasksResourceTarget = String.format("http://localhost:%d/tasks", RULE.getLocalPort());
         ObjectMapper om = new ObjectMapper();
