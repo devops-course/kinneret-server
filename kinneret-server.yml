@@ -9,7 +9,6 @@ server:
     port: 9001
 
   requestLog:
-    timeZone: UTC
     appenders:
      - type: file
        currentLogFilename: C:\kinneret-repo\logs\jetty.log
@@ -18,14 +17,16 @@ server:
        archivedLogFilenamePattern: C:\kinneret-repo\logs\jetty-%d.log
        archivedFileCount: 5
        timeZone: UTC
-
+       logFormat: "%h %l %u %t \"%r\" %s %b"
 #logging:
+#  loggers:
+#    org.glassfish.jersey.filter.LoggingFilter: INFO
 #    level: INFO
-#    appenders:
+#  appenders:
 #    - type: file
-#      currentLogFilename: C:\kinneret-repo\logs\jetty.log
+#      currentLogFilename: C:\kinneret-repo\logging\jetty.log
 #      threshold: ALL
 #      archive: true
-#      archivedLogFilenamePattern: C:\kinneret-repo\logs\jetty-%d.log
+#      archivedLogFilenamePattern: C:\kinneret-repo\logging\jetty-%d.log
 #      archivedFileCount: 5
 #      timeZone: UTC
