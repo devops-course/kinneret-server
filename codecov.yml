@@ -1,4 +1,6 @@
 coverage:
+  ci:
+    - !travisci           # ignore CI builds by travisci
   notify:
     webhook:
       default: 
