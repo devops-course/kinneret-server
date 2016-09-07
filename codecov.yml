@@ -1,11 +1,7 @@
-comment:
-  layout: header, changes, diff
 coverage:
-  status: {}
   notify:
     webhook:
       default: 
         url: "http://requestb.in/toh444to"
-        threshold: null
-        branches: null
-        only_pulls: null
+        branches: master
+
