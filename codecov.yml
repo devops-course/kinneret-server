@@ -5,7 +5,7 @@ coverage:
   notify:
     webhook:
       default: 
-        url: http://requestb.in/toh444to
+        url: "http://requestb.in/toh444to"
         threshold: null
         branches: null
         only_pulls: null
